@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Discovery 2K25 Festival Design System - Futuristic Neon Theme */
+
+@layer base {
+  :root {
+    /* Dark futuristic base */
+    --background: 220 27% 8%;
+    --foreground: 0 0% 98%;
+
+    /* Card surfaces with subtle transparency */
+    --card: 220 27% 12%;
+    --card-foreground: 0 0% 98%;
+
+    /* Popover elements */
+    --popover: 220 27% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary neon cyan */
+    --primary: 180 100% 50%;
+    --primary-foreground: 220 27% 8%;
+
+    /* Secondary neon purple */
+    --secondary: 280 100% 70%;
+    --secondary-foreground: 220 27% 8%;
+
+    /* Muted elements */
+    --muted: 220 27% 15%;
+    --muted-foreground: 220 9% 65%;
+
+    /* Accent neon pink */
+    --accent: 320 100% 70%;
+    --accent-foreground: 220 27% 8%;
+
+    /* Destructive neon red */
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders and inputs */
+    --border: 220 27% 20%;
+    --input: 220 27% 15%;
+    --ring: 180 100% 50%;
+
+    /* Festival specific colors */
+    --neon-blue: 210 100% 50%;
+    --neon-purple: 280 100% 70%;
+    --neon-pink: 320 100% 70%;
+    --neon-orange: 30 100% 60%;
+    --neon-green: 120 100% 50%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 27% 8%), hsl(280 100% 10%));
+    --gradient-neon: linear-gradient(45deg, hsl(180 100% 50%), hsl(280 100% 70%), hsl(320 100% 70%));
+    --gradient-card: linear-gradient(135deg, hsl(220 27% 12% / 0.8), hsl(280 100% 10% / 0.8));
+    
+    /* Shadows with neon glow */
+    --shadow-neon: 0 0 20px hsl(180 100% 50% / 0.3);
+    --shadow-card: 0 10px 30px hsl(220 27% 8% / 0.5);
+    
+    /* Animation timing */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Light mode not needed for festival theme - keeping dark aesthetic */
+}
+
+/* Custom utility classes for festival effects */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+  }
+  
+  .neon-glow {
+    box-shadow: var(--shadow-neon);
+  }
+  
+  .hero-pattern {
+    background-image: 
+      radial-gradient(circle at 20% 50%, hsl(180 100% 50% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(280 100% 70% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsl(320 100% 70% / 0.1) 0%, transparent 50%);
+  }
+  
+  .geometric-pattern {
+    background-image: 
+      linear-gradient(45deg, hsl(180 100% 50% / 0.05) 25%, transparent 25%),
+      linear-gradient(-45deg, hsl(280 100% 70% / 0.05) 25%, transparent 25%);
+    background-size: 30px 30px;
+  }
+  
+  .festival-card {
+    @apply bg-gradient-to-br from-card/80 to-muted/60 backdrop-blur-sm border border-border/30;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .hover-float {
+    @apply transition-transform duration-300;
+  }
+  
+  /* Reduce animations for users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hover-float {
+      @apply transition-none;
+    }
+    
+    .animate-fade-in,
+    .animate-slide-in-left,
+    .animate-slide-in-right,
+    .animate-scale-in,
+    .animate-float {
+      animation: none !important;
+    }
+  }
+  
+  /* Only enable hover effects on non-touch devices for better performance */
+  @media (hover: hover) {
+    .hover-float:hover {
+      @apply -translate-y-2 scale-[1.02];
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins;
+    background: var(--gradient-hero);
+    min-height: 100vh;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron;
+  }
+  
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
+  }
+  
+  .z-15 {
+    z-index: 15;
+  }
+}
