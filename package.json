@@ -1,0 +1,8 @@
+{
+    "name": "discovery-adcet",
+    "version": "1.0.0",
+    "description": "registration portal for discovery adcet",
+    "scripts": {
+        "build": "cd frontend && npm install && npm run build && rm -rf ../dist && cp -R dist ../dist && cd ../backend && npm install && npm run build"
+    }
+}
