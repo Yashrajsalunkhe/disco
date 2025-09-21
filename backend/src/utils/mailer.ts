@@ -4,7 +4,7 @@ import path from 'path';
 import dotenv from 'dotenv';
 import SMTPTransport from 'nodemailer/lib/smtp-transport';
 
-dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 const emailUser = process.env.EMAIL_USER;
 const emailPass = process.env.EMAIL_PASS;
