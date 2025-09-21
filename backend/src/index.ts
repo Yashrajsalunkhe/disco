@@ -23,7 +23,20 @@ dotenv.config({ path: path.resolve(__dirname, '../.env') });
 const app = express();
 
 // Middleware
-app.use(cors());
+// Middlewares
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://discovery.adcet.ac.in/"
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PATCH", "DELETE"],
+    credentials: true,
+  })
+);
+
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: false, limit: '10mb' }));
 
