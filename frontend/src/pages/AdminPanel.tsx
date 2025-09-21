@@ -102,7 +102,7 @@ const AdminPanel: React.FC = () => {
   const { toast } = useToast();
 
   // Use environment variable for API base URL with fallback
-  const API_BASE = 'http://localhost:3000/api';
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api';
 
   // Check if user is already authenticated
   useEffect(() => {
