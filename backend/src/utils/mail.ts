@@ -1,4 +1,4 @@
-import transporter from "./mailer";
+import transporter from "./mailer.js";
 import dotenv from 'dotenv';
 
 dotenv.config();

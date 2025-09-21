@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
 import dotenv from 'dotenv';
 import { Request, Response } from 'express';
-import { sendWelcomeEmail } from './utils/mail';
+import { sendWelcomeEmail } from './utils/mail.js';
 
 dotenv.config();
 

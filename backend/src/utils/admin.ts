@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Registration, connectToMongoDB } from '../register';
+import { Registration, connectToMongoDB } from '../register.js';
 import * as XLSX from 'xlsx';
 
 export interface AdminAuthRequest extends Request {

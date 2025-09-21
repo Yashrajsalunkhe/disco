@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { Registration, connectToMongoDB } from './register';
+import { Registration, connectToMongoDB } from './register.js';
 
 export const checkDuplicate = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   await connectToMongoDB();
